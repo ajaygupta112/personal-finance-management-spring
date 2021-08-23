@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="expense_category")
-class Expense_Category
+public class ExpenseCategory
 {
 	@Id
 	@GeneratedValue
