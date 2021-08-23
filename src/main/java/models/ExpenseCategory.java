@@ -2,8 +2,17 @@ package models;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="expense_category")
 class Expense_Category
 {
+	@Id
+	@GeneratedValue
 	private int id;
 	private String name;
 	private Date created_at;
@@ -32,6 +41,4 @@ class Expense_Category
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-	
-
 }

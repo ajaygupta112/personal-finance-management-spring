@@ -2,9 +2,18 @@ package models;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_type")
 public class UserType {
+	@Id
+	@GeneratedValue
 	private int id;
-	private String Name;
+	private String name;
 	private Date created_at;
 	private Date updated_at;
 	public int getId() {
@@ -14,10 +23,10 @@ public class UserType {
 		this.id = id;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		name = name;
 	}
 	public Date getCreated_at() {
 		return created_at;

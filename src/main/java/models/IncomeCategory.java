@@ -2,8 +2,17 @@ package models;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="income_category")
 public class IncomeCategory {
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String name;
 	private Date created_at;
