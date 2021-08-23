@@ -28,9 +28,9 @@ public class User {
 		private Date updated_at;
 		//private int user_type;
 		@OneToOne
-		@JoinColumn(name = "usertype_id")
+		@JoinColumn(name = "user_type_id")
 		@RestResource(path = "userType", rel="userType_id")
-		public UserType user_type_id;
+		private UserType user_type;
 		private float total_income;
 		private float total_expense;
 		private float total_balance;
@@ -71,7 +71,7 @@ public class User {
 			return city;
 		}
 		public void setCity(String city) {
-			city = city;
+			this.city = city;
 		}
 		public int getAge() {
 			return age;
@@ -103,11 +103,11 @@ public class User {
 		public void setUpdated_at(Date updated_at) {
 			this.updated_at = updated_at;
 		}
-		public UserType getUser_type_id() {
-			return user_type_id;
+		public UserType getUser_type() {
+			return user_type;
 		}
-		public void setUser_type_id(UserType user_type_id) {
-			this.user_type_id = user_type_id;
+		public void setUser_type(UserType user_type) {
+			this.user_type = user_type;
 		}
 		public float getTotal_income() {
 			return total_income;

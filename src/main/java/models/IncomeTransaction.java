@@ -2,17 +2,33 @@ package models;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.rest.core.annotation.RestResource;
+
+@Entity
+@Table(name="income_transaction")
 public class IncomeTransaction 
 {
+	@Id
 	private int id;
 	private String Transaction_Category;
 	private float amount;
-	private String text;
+	private String note;
 	private Date created_at;
 	private Date updated_at;
-	private  int user_id;
-	private int income_category;
-	public IncomeCategory ic;
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	@RestResource(path = "user_id", rel="user_id")
+	private  User user;
+	@OneToOne
+	@JoinColumn(name = "income_category_id")
+	@RestResource(path = "income_category_id", rel="income_category_id")
+	private IncomeCategory income_category;
 
 	public int getId() 
 	{
@@ -44,14 +60,30 @@ public class IncomeTransaction
 		this.amount = amount;
 	}
 
-	public String getText() 
+	public String getNote() 
 	{
-		return text;
+		return note;
 	}
 
-	public void setText(String text) 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public IncomeCategory getIncome_category() {
+		return income_category;
+	}
+
+	public void setIncome_category(IncomeCategory income_category) {
+		this.income_category = income_category;
+	}
+
+	public void setNote(String note) 
 	{
-		this.text = text;
+		this.note = note;
 	}
 
 	public Date getCreated_at() 
@@ -74,24 +106,5 @@ public class IncomeTransaction
 		this.updated_at = updated_at;
 	}
 	
-	public int getUser_id() 
-	{
-		return user_id;
-	}
 	
-	public void setUser_id(int user_id) 
-	{
-		this.user_id = user_id;
-	}
-	
-	public int getIncome_category() 
-	{
-		return income_category;
-	}
-	
-	public void setIncome_category(int income_category) 
-	{
-		this.income_category = income_category;
-	}
-		
 }
