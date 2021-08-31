@@ -2,7 +2,6 @@ package models;
 
 import java.sql.Date;
 
-<<<<<<< Updated upstream
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -10,15 +9,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.rest.core.annotation.RestResource;
-=======
 
-public class ExpenseTransaction 
-{
->>>>>>> Stashed changes
 
 @Entity
 @Table(name="expense_transaction")
-public class ExpenseTransaction<ExpenseCategory> 
+public class ExpenseTransaction
 {
 	@Id
 	private int id;
