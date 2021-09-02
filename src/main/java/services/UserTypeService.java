@@ -3,23 +3,40 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.User;
-import repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import models.UserType;
+
+import repositories.UserTypeRepository;
 
 public class UserTypeService 
 {
-	UserRepository userRepository;
-	
-	public List<User> getAllUsers()
+	@Autowired
+	private UserTypeRepository userTypeRepo;
+	public List<UserType> getAllUsersTypes()
 	{
-		List<User> users = new ArrayList<>();
-		userRepository.findAll().forEach(u->users.add(u));
-		return users;
+		List<UserType> usersType = new ArrayList<>();
+		userTypeRepo.findAll().forEach(u->usersType.add(u));
+		return usersType;
 	}
-	
-	public User getUserById(int id)
+	public UserType getUserTypeById(int id)
 	{
-		return userRepository.findById(id).orElse(null);
+		return userTypeRepo.findById(id).orElse(null);
 	}
-
+	public void addUserType(UserType userType)
+	{
+		UserType newUserType = userTypeRepo.save(userType);
+	}
+	public void updateUserType(UserType userType)
+	{
+		userTypeRepo.save(userType);
+	}
+	/*public void addAllTopic(List<IncomeTransaction> incTrans)
+	{
+		itr.saveAll(incTrans);
+	}*/
+	public void deleteUserType(int id)
+	{
+		userTypeRepo.deleteById(id);
+	}
 }
